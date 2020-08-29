@@ -1,6 +1,6 @@
 package com.example.greedygameimagecachinglibrary.pojo
 
-data class Response(val kind: String, val data: ListImageData)
+data class AllImageResponse(val kind: String, val data: ListImageData)
 data class ListImageData(val dist:Int, val children:List<CompleteImageData>)
 data class CompleteImageData(val kids:String, val data:SmallImageData)
 data class SmallImageData(val thumbnail:String, val preview:ImagePreview)
