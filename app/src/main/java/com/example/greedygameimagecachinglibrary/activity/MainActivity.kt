@@ -7,10 +7,13 @@ import com.example.greedygameimagecachinglibrary.R
 import com.example.greedygameimagecachinglibrary.bll.MainActivityViewModel
 import com.example.greedygameimagecachinglibrary.bll.ViewModelFactory
 import com.example.greedygameimagecachinglibrary.dal.MainActivityRepository
+import com.example.greedygameimagecachinglibrary.pojo.CompleteImageData
+import com.example.imageloader.model.ResourceData
 
 class MainActivity : AppCompatActivity() {
 
     private var invitationViewModel: MainActivityViewModel? = null
+    private val images: ArrayList<ResourceData<CompleteImageData>> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,3 +1,2 @@
-include ':imageloader'
-include ':app'
+include ':app',':imageloader'
 rootProject.name = "GreedyGameImageCachingLibrary"
