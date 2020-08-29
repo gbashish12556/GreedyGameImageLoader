@@ -27,14 +27,16 @@ ext {
     junitVersion = '4.12'
     rxAndroidVersion = '2.0.2'
     constraint_layout_version = '1.1.2'
+    kotterKnifeVersion = '0.1.0-SNAPSHOT'
 
     libraries = [
             kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
             androidSupport   : "com.android.support:support-v4:$androidSupportVersion",
             rxJava           : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
-            recyclerView     : "com.android.support:recyclerview-v7:$androidSupportVersion",
+            recyclerView     : "androidx.recyclerview:recyclerview:1.1.0",
             cardView         : "com.android.support:cardview-v7:$androidSupportVersion",
             rxAndroid        : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            kotterKnife      : "com.jakewharton:kotterknife:$kotterKnifeVersion",
             constraintLayout : "com.android.support.constraint:constraint-layout:$constraint_layout_version",
     ]
 

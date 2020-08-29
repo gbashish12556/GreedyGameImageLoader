@@ -66,6 +66,6 @@ dependencies {
     implementation libraries.cardView
     implementation libraries.rxAndroid
     implementation libraries.constraintLayout
-
+    implementation libraries.kotterKnife
 
 }
