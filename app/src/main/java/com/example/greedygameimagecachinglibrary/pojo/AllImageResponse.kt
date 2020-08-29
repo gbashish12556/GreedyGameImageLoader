@@ -8,7 +8,7 @@ data class CompleteImageData(val kids:String, val data:SmallImageData):
     ResourceData<CompleteImageData> {
     override fun get() = this
 }
-data class SmallImageData(val thumbnail:String, val preview:ImagePreview)
+data class SmallImageData(val thumbnail:String, val url_overridden_by_dest:String, val preview:ImagePreview)
 data class ImagePreview(val images:List<Images>)
 data class Images(val source:SingleImage, val resolutions:List<SingleImage>)
 data class SingleImage(val url:String, val width:Int, val height:String)

@@ -2,6 +2,7 @@ package com.example.imageloader.component
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import android.widget.AdapterView
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -16,6 +17,7 @@ import io.reactivex.Observable
 import kotlin.properties.Delegates
 
 open class ImageGridView : RecyclerView, OnItemClickListener {
+
     override fun onItemClick(view: View, position: Int) {
         itemClickListener.invoke(view, position)
     }
@@ -47,7 +49,7 @@ open class ImageGridView : RecyclerView, OnItemClickListener {
     init {
         layoutManager = GridLayoutManager(context, 1)
         itemAnimator = DefaultItemAnimator()
-        layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, dpToPixel(200,context))
         contentChildAdapter = ImageGridAdpater(gridResourceDataAdapter, this)
         adapter = contentChildAdapter
         setHasFixedSize(true)
@@ -61,9 +63,16 @@ open class ImageGridView : RecyclerView, OnItemClickListener {
         }
     }
 
-    fun setGridItemWidth(itemWidth: Int) {
-        this.itemWidth = itemWidth
-        requestLayout()
+    fun dpToPixel(dp: Int, context: Context): Int {
+        val r = context.getResources()
+        val px = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            dp.toFloat(),
+            r.getDisplayMetrics()
+        ).toInt()
+
+        return px
+
     }
 
     private fun swapAdapter(resourceDataAdapter: ImageAdapter<Any, *>) {

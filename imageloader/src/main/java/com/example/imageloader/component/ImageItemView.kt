@@ -26,10 +26,5 @@ class ImageItemView(context: Context, attributeSet: AttributeSet? = null):
     fun getImageView():ImageView{
         return gridImageView
     }
-//    fun setImageDrawable(drawable: Drawable) {
-//        gridImageView.setImageDrawable(drawable)
-//        // episodeImageView.setBackgroundColor()
-//        gridImageView.invalidate()
-//    }
 
 }

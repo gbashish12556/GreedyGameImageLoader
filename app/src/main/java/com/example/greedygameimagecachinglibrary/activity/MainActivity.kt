@@ -1,5 +1,6 @@
 package com.example.greedygameimagecachinglibrary.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -33,21 +34,23 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupUI() {
         invitationViewModel?.getAllImageResponse()?.observe(this, Observer {
-            Log.d("dataSize",it.data?.size.toString())
             images.addAll(it.data!!)
             val adapter = ImageGridAdapter()
-            gridView?.setGridItemWidth(260)
             gridView?.gridResourceDataAdapter = adapter as ImageAdapter<Any, *>
             gridView?.gridData = it.data?.toList() as List<ResourceData<Any>>
-            disposable = gridView?.onSelectObservable?.subscribe { episode ->
-                launchNextScreen(episode)
+            disposable = gridView?.onSelectObservable?.subscribe { imageData ->
+                var data = imageData as CompleteImageData
+                launchNextScreen(data)
             }
         })
     }
 
 
-    private fun launchNextScreen(episode:ResourceData<Any>){
 
+    private fun launchNextScreen(imageData:CompleteImageData){
+        val intent = Intent(this@MainActivity, DetailActivity::class.java)
+        intent.putExtra("imageUrl", imageData.data.url_overridden_by_dest)
+        startActivity(intent)
     }
     private fun setupViewModel() {
         invitationViewModel = ViewModelProviders.of(this, ViewModelFactory(
