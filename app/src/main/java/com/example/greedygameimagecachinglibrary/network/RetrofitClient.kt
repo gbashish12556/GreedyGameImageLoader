@@ -11,8 +11,8 @@ import java.util.concurrent.TimeUnit
 class RetrofitClient private constructor() {
     private val retrofit: Retrofit
 
-    val api: Api
-        get() = retrofit.create(Api::class.java)
+    val api: ApiService
+        get() = retrofit.create(ApiService::class.java)
 
     init {
 
@@ -21,7 +21,7 @@ class RetrofitClient private constructor() {
         logging.level = HttpLoggingInterceptor.Level.BODY
 
 
-        var client = OkHttpClient.Builder().connectTimeout(1, TimeUnit.SECONDS).readTimeout(1, TimeUnit.SECONDS)
+        var client = OkHttpClient.Builder().connectTimeout(100, TimeUnit.SECONDS).readTimeout(100, TimeUnit.SECONDS)
             .addInterceptor(logging)
             .build()
 

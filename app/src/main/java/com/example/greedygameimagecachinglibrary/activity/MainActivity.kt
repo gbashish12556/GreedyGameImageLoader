@@ -2,6 +2,7 @@ package com.example.greedygameimagecachinglibrary.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.greedygameimagecachinglibrary.R
@@ -32,7 +33,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupUI() {
         invitationViewModel?.getAllImageResponse()?.observe(this, Observer {
-            images.addAll(it.data as ArrayList<ResourceData<CompleteImageData>>)
+            Log.d("dataSize",it.data?.size.toString())
+            images.addAll(it.data!!)
             val adapter = ImageGridAdapter()
             gridView?.setGridItemWidth(260)
             gridView?.gridResourceDataAdapter = adapter as ImageAdapter<Any, *>

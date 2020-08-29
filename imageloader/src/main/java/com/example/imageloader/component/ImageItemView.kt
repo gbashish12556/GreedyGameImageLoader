@@ -23,10 +23,13 @@ class ImageItemView(context: Context, attributeSet: AttributeSet? = null):
         isClickable = true
     }
 
-    fun setImageDrawable(drawable: Drawable) {
-        gridImageView.setImageDrawable(drawable)
-        // episodeImageView.setBackgroundColor()
-        gridImageView.invalidate()
+    fun getImageView():ImageView{
+        return gridImageView
     }
+//    fun setImageDrawable(drawable: Drawable) {
+//        gridImageView.setImageDrawable(drawable)
+//        // episodeImageView.setBackgroundColor()
+//        gridImageView.invalidate()
+//    }
 
 }
